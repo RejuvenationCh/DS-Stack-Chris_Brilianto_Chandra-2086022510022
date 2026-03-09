@@ -6,11 +6,12 @@ import java.util.Stack;
 public class Main {
     String input;
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the string to check if it is balanced or not: ");
-        String inputString = sc.nextLine();
-        is_balanced(inputString);
-        sc.close();
+        //Scanner sc = new Scanner(System.in);
+        //System.out.println("Enter the string to check if it is balanced or not: ");
+        //String inputString = sc.nextLine();
+       // is_balanced(inputString);
+       // sc.close();
+       is_balanced(null);
     }
     public static void is_balanced(String inputString) {
         inputString = "({[]})";
@@ -18,7 +19,7 @@ public class Main {
             System.out.println("The string is not balanced.");
             return;
         }
-   
+
         char[] brackets = inputString.toCharArray();
         Stack<Character> inputStack = new Stack<>();
         boolean isBalanced = true;
@@ -26,12 +27,24 @@ public class Main {
                 for (char bracket : brackets) {
                     if (bracket == '(' || bracket == '{' || bracket == '[') {
                         inputStack.push(bracket);
+                    } else {
+                        if (inputStack.isEmpty()) {
+                            isBalanced = false;
+                            break;
+                        }
+                        char top = inputStack.pop();
+                     boolean match = switch (bracket) {
+                        case ')' -> (top == '(');
+                        case '}' -> (top == '{');
+                        case ']' -> (top == '[');
+                        default  -> false;
+                    };
+                    if (!match) {
+                        isBalanced = false;
+                        break;
                     }
-
-                    
-                
-            
-
+                    }
+                }
                     if (isBalanced && inputStack.isEmpty()) {
                         System.out.println("The string is balanced.");
                     } else {
@@ -39,4 +52,4 @@ public class Main {
                     }
                 }
             }
-        }
+        
