@@ -13,32 +13,21 @@ public class Main {
         sc.close();
     }
     public static void is_balanced(String inputString) {
-           if (inputString.length() % 2 != 0) {
+        if (inputString.length() % 2 != 0) {
             System.out.println("The string is not balanced.");
+            return;
         }
-        
-            else {
-                char[] brackets = inputString.toCharArray();
-                Stack<Character> inputStack = new Stack<>();
-                boolean isBalanced = true;
+        char[] brackets = inputString.toCharArray();
+        Stack<Character> inputStack = new Stack<>();
+        boolean isBalanced = true;
 
                 for (char bracket : brackets) {
                     if (bracket == '(' || bracket == '{' || bracket == '[') {
                         inputStack.push(bracket);
                     }
-                    else if (bracket == ')' || bracket == '}' || bracket == ']') {
-                        if (inputStack.isEmpty()) {
-                            isBalanced = false;
-                            break;
-                        }
-                        char top = inputStack.pop();
-                        if ((bracket == ')' && top != '(') ||
-                            (bracket == '}' && top != '{') ||
-                            (bracket == ']' && top != '[')) {
-                            isBalanced = false;
-                            break;
-                        }
-                    }
+                    
+                
+            
 
                     if (isBalanced && inputStack.isEmpty()) {
                         System.out.println("The string is balanced.");
@@ -47,8 +36,4 @@ public class Main {
                     }
                 }
             }
-            }
-
-        
-
-} 
+        }
