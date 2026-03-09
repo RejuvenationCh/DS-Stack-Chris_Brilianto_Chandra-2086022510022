@@ -22,7 +22,6 @@ public class Main {
         char[] brackets = inputString.toCharArray();
         Stack<Character> inputStack = new Stack<>();
         boolean isBalanced = true;
-
                 for (char bracket : brackets) {
                     if (bracket == '(' || bracket == '{' || bracket == '[') {
                         inputStack.push(bracket);
