@@ -6,15 +6,14 @@ import java.util.Stack;
 public class Main {
     String input;
     public static void main(String[] args) {
-        //Scanner sc = new Scanner(System.in);
-        //System.out.println("Enter the string to check if it is balanced or not: ");
-        //String inputString = sc.nextLine();
-       // is_balanced(inputString);
-       // sc.close();
-       is_balanced(null);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the string to check if it is balanced or not: ");
+        String inputString = sc.nextLine();
+        is_balanced(inputString);
+        sc.close();
+
     }
     public static void is_balanced(String inputString) {
-        inputString = "({[]})";
         if (inputString.length() % 2 != 0) {
             System.out.println("The string is not balanced.");
             return;
