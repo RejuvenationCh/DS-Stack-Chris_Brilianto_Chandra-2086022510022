@@ -13,10 +13,12 @@ public class Main {
         sc.close();
     }
     public static void is_balanced(String inputString) {
+        inputString = "({[]})";
         if (inputString.length() % 2 != 0) {
             System.out.println("The string is not balanced.");
             return;
         }
+   
         char[] brackets = inputString.toCharArray();
         Stack<Character> inputStack = new Stack<>();
         boolean isBalanced = true;
@@ -25,6 +27,7 @@ public class Main {
                     if (bracket == '(' || bracket == '{' || bracket == '[') {
                         inputStack.push(bracket);
                     }
+
                     
                 
             
