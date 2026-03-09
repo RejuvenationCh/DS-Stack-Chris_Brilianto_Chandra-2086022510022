@@ -10,47 +10,45 @@ public class Main {
         System.out.println("Enter the string to check if it is balanced or not: ");
         String inputString = sc.nextLine();
         is_balanced(inputString);
+        sc.close();
     }
     public static void is_balanced(String inputString) {
-        boolean isBalanced = false;
-        for (int i = 0; i < inputString.length(); i++) {
-            if (i % 2 != 0) {
-                break;
-            }
+           if (inputString.length() % 2 != 0) {
+            System.out.println("The string is not balanced.");
+        }
+        
             else {
                 char[] brackets = inputString.toCharArray();
                 Stack<Character> inputStack = new Stack<>();
+                boolean isBalanced = true;
 
                 for (char bracket : brackets) {
                     if (bracket == '(' || bracket == '{' || bracket == '[') {
                         inputStack.push(bracket);
                     }
-                    else if (bracket == ')' && !inputStack.isEmpty() && inputStack.peek() == '(') {
-                        inputStack.pop();
+                    else if (bracket == ')' || bracket == '}' || bracket == ']') {
+                        if (inputStack.isEmpty()) {
+                            isBalanced = false;
+                            break;
+                        }
+                        char top = inputStack.pop();
+                        if ((bracket == ')' && top != '(') ||
+                            (bracket == '}' && top != '{') ||
+                            (bracket == ']' && top != '[')) {
+                            isBalanced = false;
+                            break;
+                        }
                     }
-                    else if (bracket == '}' && !inputStack.isEmpty() && inputStack.peek() == '{') {
-                        inputStack.pop();
+
+                    if (isBalanced && inputStack.isEmpty()) {
+                        System.out.println("The string is balanced.");
+                    } else {
+                        System.out.println("The string is not balanced.");
                     }
-                    else if (bracket == ']' && !inputStack.isEmpty() && inputStack.peek() == '[') {
-                        inputStack.pop();
-                    }
-                    else {
-                        isBalanced = false;
-                        break;
-                    }
-    
                 }
             }
-
-                
             }
 
-          if (isBalanced) {
-            System.out.println("The string is balanced.");
-        } else {
-            System.out.println("The string is not balanced.");
-        }
         
 
 } 
-}
