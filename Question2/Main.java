@@ -27,10 +27,10 @@ public class Main {
                     System.out.println(" Not enough operands for the operator ");
                     return;
                 }
-                double b = stack.pop();
-                double a = stack.pop();
+                int b = stack.pop();
+                int a = stack.pop();
        
-                double result = switch (token) {
+                int result = switch (token) {
                     case "+" -> a + b;
                     case "-" -> a - b;
                     case "*" -> a * b;
