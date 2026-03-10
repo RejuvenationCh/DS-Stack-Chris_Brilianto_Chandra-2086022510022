@@ -27,23 +27,18 @@ public class Main {
         for (String num : secretCodeInput) {
             codeStack.push(Integer.parseInt(num));
         }
-        
+
+        Stack<Integer> sortedStack = new Stack<>();
         int stackSize = codeStack.size();
-        for (int i = 1; i < stackSize; i++) {
-            Stack<Integer> sortedStack = new Stack<>();
-            for (int j = 0; j < i; j++) {
-               if (!codeStack.isEmpty()) {
-                   sortedStack.add(codeStack.pop());
+        while (!codeStack.isEmpty()) {
+            Stack<Integer> temporalStorage = new Stack<>();
 
-                   while (!sortedStack.isEmpty() && sortedStack.peek()) {
-                    
-                   }
-               }
-            }
-            
-            
-        }
         
+                
 
-    }
+        
+     }
 }
+}
+            
+            
