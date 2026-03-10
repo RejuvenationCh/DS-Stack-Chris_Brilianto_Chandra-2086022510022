@@ -1,8 +1,6 @@
 package Question4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -29,16 +27,17 @@ public class Main {
         }
 
         Stack<Integer> sortedStack = new Stack<>();
-        int stackSize = codeStack.size();
+
         while (!codeStack.isEmpty()) {
-            Stack<Integer> temporalStorage = new Stack<>();
-
-        
-                
-
-        
+            int currentNum = codeStack.pop();
+            while (!sortedStack.isEmpty() && sortedStack.peek() > currentNum) {
+            codeStack.push(sortedStack.pop());
+        }
+        sortedStack.push(currentNum);
+        }
+        for (int i = 0; i < sortedStack.size(); i++) {
+            System.out.print(sortedStack.get(i) + (i == sortedStack.size() - 1 ? "" : " "));
+            }
+            System.out.println();
      }
 }
-}
-            
-            
