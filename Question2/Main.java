@@ -10,7 +10,7 @@ public class Main {
         String inputString = sc.nextLine();  
 
         if (inputString.isEmpty()) {
-            System.out.println("Input is empty.");
+            System.out.println("Input is empty");
         } else {
             String[] tokens = inputString.split("\\s+"); 
             calculateRPN(tokens);
@@ -24,7 +24,7 @@ public class Main {
         for (String token : tokens) {
             if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")) {
                 if (stack.size() < 2) {
-                    System.out.println(" Not enough operands for the operator ");
+                    System.out.println("Not enough operands for the operator");
                     return;
                 }
                 int b = stack.pop();
@@ -36,7 +36,7 @@ public class Main {
                     case "*" -> a * b;
                     case "/" -> {
                         if (b == 0) {
-                            System.out.println("Division by zero is not allowed.");
+                            System.out.println("Division by zero is not allowed");
                             yield 0;    
                         }
                         yield a / b;
@@ -49,7 +49,7 @@ public class Main {
                 try {
                     stack.push(Integer.parseInt(token));
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid token: " + token);
+                    System.out.println("Invalid token" );
                     return;
                 }
             }
