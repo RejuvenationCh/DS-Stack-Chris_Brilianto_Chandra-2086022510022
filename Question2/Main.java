@@ -19,16 +19,16 @@ public class Main {
     }
     
     public static  void calculateRPN (String[] tokens){
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> rpnStack = new Stack<>();
 
         for (String token : tokens) {
             if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")) {
-                if (stack.size() < 2) {
+                if (rpnStack.size() < 2) {
                     System.out.println("Not enough operands for the operator");
                     return;
                 }
-                int b = stack.pop();
-                int a = stack.pop();
+                int b = rpnStack.pop();
+                int a = rpnStack.pop();
        
                 int result = switch (token) {
                     case "+" -> a + b;
@@ -43,19 +43,19 @@ public class Main {
                     }
                     default -> 0; 
                 };
-                stack.push((int) result);
+                rpnStack.push((int) result);
             }
                 else {
                 try {
-                    stack.push(Integer.parseInt(token));
+                    rpnStack.push(Integer.parseInt(token));
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid token" );
                     return;
                 }
             }
         }
-        if (stack.size() == 1) {
-            int finalResult = stack.pop();
+        if (rpnStack.size() == 1) {
+            int finalResult = rpnStack.pop();
             System.out.println("Final Result : " + finalResult);
         } else {
             System.out.println("Invalid RPN structure");
