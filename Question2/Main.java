@@ -59,7 +59,6 @@ public class Main {
             System.out.println("Final Result : " + finalResult);
         } else {
             System.out.println("Invalid RPN structure");
-              
         }
     }
 }
