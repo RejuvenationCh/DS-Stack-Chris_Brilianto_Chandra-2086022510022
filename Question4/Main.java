@@ -1,6 +1,7 @@
 package Question4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
@@ -21,20 +22,25 @@ public class Main {
     }
     
     public static void stackingFormationInjection(String[] secretCodeInput) {
-        Stack <String> codeStack = new Stack<>();
+        Stack <Integer> codeStack = new Stack<>();
 
         for (String num : secretCodeInput) {
-            codeStack.push(num);
+            codeStack.push(Integer.parseInt(num));
         }
+        
         int stackSize = codeStack.size();
         for (int i = 1; i < stackSize; i++) {
-            List<Integer> tempStack = new ArrayList<>();
+            Stack<Integer> sortedStack = new Stack<>();
             for (int j = 0; j < i; j++) {
                if (!codeStack.isEmpty()) {
-                   tempStack.add(Integer.parseInt(codeStack.pop()));
+                   sortedStack.add(codeStack.pop());
+
+                   while (!sortedStack.isEmpty() && sortedStack.peek()) {
+                    
+                   }
                }
             }
-
+            
             
         }
         
