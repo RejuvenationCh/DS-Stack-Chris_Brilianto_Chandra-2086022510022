@@ -60,10 +60,7 @@ public class Main {
         } else {
             System.out.println("Invalid RPN structure");
               
-            }
-        
-
+        }
     }
-    
 }
 
